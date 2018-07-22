@@ -1,24 +1,71 @@
 // @flow strict
 
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux'
+import type { Dispatch } from 'redux';
 
-type State = {
+type State = {|
   +value: number
-}
+|}
 
-class App extends Component<State> {
-  render() {
-    return (
-      <div className="App">
-        <h1>Redux counter</h1>
-        <button>increment</button>
-        <button>decrement</button>
-        <div>0</div>
-      </div>
-    );
+type IncrementAction = {|
+  type: "INCREMENT",
+|}
+
+type DecrementAction = {|
+  type: "DECREMENT",
+|}
+
+type Action = 
+| IncrementAction
+| DecrementAction
+
+const mapStateToCounterProps = ({value}: State) => {
+  return {
+    value: value,
   }
 }
 
-export default App;
+const mapDispatchToCounterProps = (dispatch: Dispatch<Action>) => {
+  return {
+    onIncrement: () => dispatch({type: "INCREMENT"}),
+    onDecrement: () => dispatch({type: "DECREMENT"}),
+  }
+}
+
+type CounterProps = {|
+  +value: number,
+  +onIncrement: () => void,
+  +onDecrement: () => void,
+|}
+
+// Presentational component
+const Counter = ({value, onIncrement, onDecrement}: CounterProps) => {
+    return (
+      <React.Fragment>
+        <button onClick={onIncrement}>Increment</button>
+        <button onClick={onDecrement}>Decrement</button>
+        <div>{value}</div>
+      </React.Fragment>
+    )
+}
+
+// Container component
+const CounterContainer = connect(
+  mapStateToCounterProps,
+  mapDispatchToCounterProps
+  )(Counter)
+
+// Presentational component
+const App = () => {
+  return (
+      <div className="App">
+        <h1>Redux counter</h1>
+        <CounterContainer/>
+      </div>
+  )
+}
+
+export default App
+
