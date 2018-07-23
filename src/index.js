@@ -8,9 +8,9 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import type { Store as ReduxStore } from 'redux';
-import { reducer } from './Reducers'
+import { rootReducer } from './Reducers'
 
-const store: ReduxStore<*,*,*> = createStore(reducer);
+const store: ReduxStore<*,*,*> = createStore(rootReducer);
 
 const root = document.getElementById('root')
 if(root !== null) {

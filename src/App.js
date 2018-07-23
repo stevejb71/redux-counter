@@ -1,25 +1,11 @@
 // @flow strict
 
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import { connect } from 'react-redux'
 import type { Dispatch } from 'redux';
-
-type State = {|
-  +value: number
-|}
-
-type IncrementAction = {|
-  type: "INCREMENT",
-|}
-
-type DecrementAction = {|
-  type: "DECREMENT",
-|}
-
-type Action = 
-| IncrementAction
-| DecrementAction
+import type { Action } from './Actions'
+import type { State } from './State'
 
 const mapStateToCounterProps = ({value}: State) => {
   return {
