@@ -1,10 +1,9 @@
 // @flow strict
 
 import React from 'react';
-import './App.css';
-import CounterContainer from './containers/CounterContainer'
+import '../App.css';
+import CounterContainer from '../containers/CounterContainer'
 
-// Presentational component
 const App = () => {
   return (
       <div className="App">
