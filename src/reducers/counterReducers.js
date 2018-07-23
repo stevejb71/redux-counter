@@ -1,8 +1,8 @@
 // @flow strict
 
-import type { Action } from './Actions'
-import type { State } from './State'
-import { initialState } from './State'
+import type { Action } from '../actions/counterActions'
+import type { State } from '../state'
+import { initialState } from '../state'
 
 export const rootReducer = (state: State = initialState, action: Action) => {
   switch(action.type) {

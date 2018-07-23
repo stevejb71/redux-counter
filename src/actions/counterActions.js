@@ -11,4 +11,3 @@ export type DecrementAction = {|
 export type Action = 
 | IncrementAction
 | DecrementAction
-

@@ -8,7 +8,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import type { Store as ReduxStore } from 'redux';
-import { rootReducer } from './Reducers'
+import { rootReducer } from './reducers/counterReducers'
 
 const store: ReduxStore<*,*,*> = createStore(rootReducer);
 
