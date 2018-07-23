@@ -1,8 +1,9 @@
 // @flow strict
 
 export type State = {|
-  +value: number
+  +count: number,
+  +amount: number,
 |}
 
-export const initialState: State = {value: 0}
+export const initialState: State = {count: 0, amount: 1}
 

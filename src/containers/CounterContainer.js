@@ -9,6 +9,7 @@ const mapDispatchToProps = (dispatch: Dispatch<Action>) => {
   return {
     onIncrement: () => dispatch({type: "INCREMENT"}),
     onDecrement: () => dispatch({type: "DECREMENT"}),
+    onAmountUpdate: e => dispatch({type: "UPDATE-AMOUNT", amount: Number(e.target.value)}),
   }
 }
 

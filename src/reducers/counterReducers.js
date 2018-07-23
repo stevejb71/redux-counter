@@ -7,9 +7,11 @@ import { initialState } from '../state'
 export const rootReducer = (state: State = initialState, action: Action) => {
   switch(action.type) {
     case "INCREMENT":
-      return {value: state.value + 1}
+      return {...state, count: state.count + state.amount}
     case "DECREMENT":
-      return {value: state.value - 1}
+      return {...state, count: state.count - state.amount}
+    case "UPDATE-AMOUNT":
+      return {...state, amount: action.amount}
     default:
       // cast to empty fails in flow if not all types are handled.
       // eslint-disable-next-line
